@@ -4,6 +4,7 @@ from datetime import datetime
 import codecs
 import subprocess
 import csv
+from reppy.robots import Robots
 
 now = datetime.now().strftime("%Y/%m/%d %H:%M")
 
@@ -11,6 +12,16 @@ print("ユーザーIDを入力してください。")
 userid = input()
 
 url ='https://twitter.com/'
+
+home = url
+target = home + userid
+userAgent = 'MyCralwer'
+robotsUrl = Robots.robots_url(home)
+robots = Robots.fetch(robotsUrl)
+result = robots.allowed(target, userAgent)
+print(result)
+delay = robots.agent(userAgent).delay
+print(delay)
 
 res = req.urlopen(url+userid)
 
