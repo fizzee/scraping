@@ -26,9 +26,11 @@ followers = soup.find(class_='ProfileNav-item--followers').find(class_='ProfileN
 
 favorite = soup.find(class_='ProfileNav-item--favorites').find(class_='ProfileNav-value').string
 
-filename = "Twitter-" +userid + ".text"
+filename = "twitter-output/Twitter-" +userid + ".text"
 
 dataList = [(tweets.strip(),10),(following,10),(followers,10),(favorite,10)]
+
+subprocess.call(['mkdir','twitter-output'])
 
 print(	'【' + str(now) +'】\n'
 		+" ユーザー名：" + username.text.strip() + " (@" + userid + ")" +'\n'
@@ -38,6 +40,4 @@ print(	'【' + str(now) +'】\n'
 		+" いいね数　：" + favorite  +'\n\n',file=codecs.open(filename, 'a', 'utf-8')
 	)
 
-
-subprocess.call(['mkdir','twitter-output'])
-subprocess.call(['mv',filename,'./twitter-output/'+filename])
+# subprocess.call(['mv',filename,'./twitter-output/'+filename])
