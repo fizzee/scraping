@@ -39,5 +39,5 @@ print(	'【' + str(now) +'】\n'
 	)
 
 
-subprocess.call(['mkdir','output'])
-subprocess.call(['mv',filename,'./output/'+filename])
+subprocess.call(['mkdir','twitter-output'])
+subprocess.call(['mv',filename,'./twitter-output/'+filename])
