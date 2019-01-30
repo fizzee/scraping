@@ -51,5 +51,11 @@ print(	'【' + str(now) +'】\n'
 		+" いいね数　：" + favorite  +'\n\n',file=codecs.open(filename, 'a', 'utf-8')
 	)
 
+<<<<<<< HEAD
 # subprocess.call(['mkdir','twitter-output'])
 # subprocess.call(['mv',filename,'./twitter-output/'+filename])
+=======
+
+subprocess.call(['mkdir','twitter-output'])
+subprocess.call(['mv',filename,'./twitter-output/'+filename])
+>>>>>>> master
