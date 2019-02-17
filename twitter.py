@@ -11,7 +11,7 @@ import pytz
 
 tmp = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 
-weekday = datetime.date.today().weekday()
+weekday = weekday(tmp.year,tmp.month,tmp.day)
 
 # [０ , １  , ２  , ３]
 # [年 , 月 , 日 , 時間]
@@ -72,3 +72,6 @@ if timedate[3] == 23:
 	subprocess.Popen(cmd.split())
 
 #週の平均
+if weekday == 0:
+	cmd = "Python3 week_average.py"
+	subprocess.Popen(cmd.split())
