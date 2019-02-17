@@ -68,7 +68,7 @@ writer.writerow(dateList[2:6])
 
 #1日の平均
 if timedate[3] == 23:
-	cmd = "Python3 week_average.py"
+	cmd = "Python3 day_average.py"
 	subprocess.Popen(cmd.split())
 
 #週の平均
