@@ -31,7 +31,7 @@ with open("tmp" + '.csv',"r") as f:
 		followers.append(int(row[2].replace(',', ""),10))
 		favorite.append(int(row[3].replace(',', ""),10))
 
-dateList = [str(timedate[0]) + "年" + str(timedate[1]) + "月" + str(timedate[2]) + "日" , str(sum(tweets)/len(tweets)),str(sum(following)/len(following)),str(sum(followers)/len(followers)),str(sum(favorite)/len(favorite))]
+dateList = [str(timedate[0]) + "/" + str(timedate[1]) + "/" + str(timedate[2])  , int(sum(tweets)/len(tweets)),int(sum(following)/len(following)),int(sum(followers)/len(followers)),int(sum(favorite)/len(favorite))]
 
 files = glob.glob("./*.csv") 
 filename = userid + "[" + str(timedate[0]) + "年" + str(timedate[1]) + "月" + "]"  + ".csv"
@@ -45,5 +45,14 @@ else :
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerow(columns)
 	writer.writerow(dateList)
+
+f = open("day_tmp.csv", 'a')
+writer = csv.writer(f, lineterminator='\n')
+writer.writerow(dateList[1:6])
+
+"""
+with open("day_tmp.txt", mode='w') as f:
+	f.writelines(dateList)
+"""
 
 subprocess.call(["rm","tmp.csv"])
